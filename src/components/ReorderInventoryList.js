@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { InventoryContext } from '../context/inventoryContext';
 
 function ReorderInventoryList() {
-    return(
-        <div id="reorder-container">
-            <h2>Reorder</h2>
-            <div>
-                {/** Put inventory items here */}
-            </div>
-        </div>
-    );
+  const { reorder, inventoryItemCardList } = useContext(InventoryContext);
+
+  return (
+    <div id='reorder-container'>
+      <h2>Reorder</h2>
+      <div>{inventoryItemCardList(reorder, 'reorderList')}</div>
+    </div>
+  );
 }
 
 export default ReorderInventoryList;
